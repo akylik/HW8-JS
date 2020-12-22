@@ -8,8 +8,11 @@ class Student {
 
    }
    getInfo() {
-      console.log(`Студент ${this.course}го курсу ${this.university} ${this.fullName}`);
+      return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`;
    }
+   // getInfo() {
+   //    console.log(`Студент ${this.course}го курсу ${this.university} ${this.fullName}`);
+   // }
    get getMarks() {
       return this.marks;
    }
@@ -17,9 +20,10 @@ class Student {
       return this.marks = [...this.marks, mark];
    }
    getAverageMark() {
-      let result = this.marks.reduce((accum, mark) => {
-         return accum + mark;
-      }, 0);
+      let result = this.marks.reduce((accum, mark) => accum + mark, 0);
+      // let result = this.marks.reduce((accum, mark) => {
+      //    return accum + mark;
+      // }, 0);
       return parseFloat((result / this.marks.length).toFixed(2));
    }
    dismiss() {
@@ -34,7 +38,7 @@ class Student {
 
 const ostap = new Student(`Вищої Школи Психотерапії м.Одеса`, 1, `Остап Родоманський Бендер`, [5, 4, 4, 5]);
 console.log(ostap);
-ostap.getInfo();
+console.log (ostap.getInfo())
 console.log(ostap.getMarks);
 console.log(ostap.getAverageMark());
 ostap.dismiss();
